@@ -1,0 +1,138 @@
+/* Estilos específicos para el sidebar */
+.sidebar {
+  background-color: #121418;
+  width: 250px;
+  transition: width 0.3s ease;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  align-items: center;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.menu-container.collapsed {
+  justify-content: center;
+}
+
+.menu-icon {
+  width: 40px;
+  height: 40px; /* Asegura que el tamaño del icono no se haga demasiado pequeño */
+  cursor: pointer;
+  margin-right: 0px;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.casino-btn, .sports-btn {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #080808;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.casino-btn.active, .sports-btn.active {
+  background-color: #6e44ff;
+  border-radius: 5px;
+}
+
+.casino-btn:hover, .sports-btn:hover {
+  background-color: #6e44ff;
+}
+
+.menu-options-collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.casino-btn-collapsed, .sports-btn-collapsed {
+  width: 40px;
+  height: 40px;
+  background-color: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.casino-btn-collapsed.active, .sports-btn-collapsed.active {
+  background-color: #6e44ff;
+}
+
+.casino-btn-collapsed img, .sports-btn-collapsed img {
+  width: 30px; /* Aumenta el tamaño de los iconos */
+  height: 30px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sidebar-nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 17px;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-nav ul li.active,
+.sidebar-nav ul li:hover {
+  background-color: transparent;
+}
+
+.sidebar-nav ul li.active img,
+.sidebar-nav ul li:hover img {
+  color: #6e44ff;
+}
+
+.sidebar-nav ul li.active span,
+.sidebar-nav ul li:hover span {
+  color: #6e44ff;
+}
+
+.sidebar-nav ul li img {
+  width: 18px; /* Aumenta el tamaño del icono a 25px */
+  height: 18px;
+  margin-left: 0px;
+}
+
+.sidebar-nav ul li span {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+  padding: 5px;
+  margin-left: 10px;
+}

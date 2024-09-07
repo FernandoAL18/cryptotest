@@ -1,0 +1,47 @@
+.app-header {
+  background-color: #080808;
+  padding: 10px 20px; /* Agregamos padding extra a la izquierda para evitar que el sidebar lo tape */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  border-bottom: 2px solid #121418;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 20px; /* Ajuste para mover el logo más a la derecha */
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.balance-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.wallet-btn {
+  display: flex;
+  align-items: center;
+  background-color: #6e44ff;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.wallet-btn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}

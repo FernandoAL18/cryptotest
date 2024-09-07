@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import MobileMenu from './components/MobileMenu';
+import HomePage from './pages/HomePage';
+import GamesPage from './pages/GamesPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
+  const [isSidebarExpanded, setSidebarExpanded] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const toggleSidebar = () => {
+    setSidebarExpanded(!isSidebarExpanded);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={`app ${isSidebarExpanded ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
+        <Header />
+        <div className="main-content">
+          {!isMobile && (
+            <Sidebar isSidebarExpanded={isSidebarExpanded} toggleSidebar={toggleSidebar} />
+          )}
+          <section className="content">
+            <Routes>
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/games" element={<GamesPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+            </Routes>
+          </section>
+        </div>
+        {isMobile && <MobileMenu />}
+      </div>
+    </Router>
   );
 }
 

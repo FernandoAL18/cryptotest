@@ -1,0 +1,125 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  }
+  
+  .homepage {
+    padding: 20px;
+    max-width: 100vw; /* Limita el ancho al tamaño del viewport */
+    overflow-x: hidden;
+  }
+  
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .section h2 {
+    margin-bottom: 20px; /* Espacio entre el título y las tarjetas */
+  }
+  
+  .cards-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Activa el scrolling horizontal */
+    scroll-behavior: smooth;
+    white-space: nowrap; /* Alinea las tarjetas en una fila */
+  }
+  
+  .cards-container::-webkit-scrollbar {
+    height: 8px; /* Tamaño del scrollbar */
+  }
+  
+  .cards-container::-webkit-scrollbar-thumb {
+    background-color: #6e44ff;
+    border-radius: 10px; /* Diseño del scrollbar */
+  }
+  
+  /* Dimensiones y estilos para las tarjetas (excepto promociones) */
+  .card {
+    flex: 0 0 147px; /* Ancho fijo de las tarjetas */
+    height: 197px; /* Alto fijo de las tarjetas */
+    background-color: #1e1e1e;
+    border-radius: 5px; /* Esquinas redondeadas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Efecto de levitación al hover */
+  }
+  
+  /* Estilos para la tarjeta "See More" */
+  .card.see-more {
+    flex: 0 0 147px;
+    height: 197px;
+    background-color: #6e44ff;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .card.see-more:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Responsividad para pantallas medianas (tablets) */
+  @media (max-width: 1200px) {
+    .cards-container {
+      justify-content: flex-start;
+    }
+  
+    .card {
+      flex: 0 0 calc(33.33% - 15px); /* Muestra 3 tarjetas por fila */
+    }
+  }
+  
+  /* Responsividad para pantallas pequeñas (móviles en modo paisaje) */
+  @media (max-width: 768px) {
+    .cards-container {
+      justify-content: flex-start;
+    }
+  
+    .card {
+      flex: 0 0 calc(50% - 15px); /* Muestra 2 tarjetas por fila */
+    }
+  }
+  
+  /* Responsividad para pantallas muy pequeñas (móviles en modo retrato) */
+  @media (max-width: 480px) {
+    .cards-container {
+      justify-content: flex-start;
+    }
+  
+    .card {
+      flex: 0 0 100%; /* Muestra 1 tarjeta por fila en pantallas pequeñas */
+    }
+  }
+  
+  /* Evita el desplazamiento horizontal en cualquier resolución */
+  .cards-container {
+    overflow-x: auto; /* Scrolling horizontal activado */
+    white-space: nowrap; /* Las tarjetas se mantienen en una sola fila */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  

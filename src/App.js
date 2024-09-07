@@ -6,8 +6,10 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import MobileMenu from './components/MobileMenu';
 import HomePage from './pages/HomePage';
-import GamesPage from './pages/GamesPage';
+import GamesPage from './pages/GamesPage'; // Asegúrate de que este componente maneje varios juegos
 import ProfilePage from './pages/ProfilePage';
+import LeBanditGame from './pages/LeBanditGame'; // Importa el componente correctamente
+
 
 function App() {
   const [isSidebarExpanded, setSidebarExpanded] = useState(true);
@@ -43,6 +45,7 @@ function App() {
               <Route path="/home" element={<HomePage />} />
               <Route path="/games" element={<GamesPage />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/casino/games/le-bandit" element={<LeBanditGame />} />
             </Routes>
           </section>
         </div>

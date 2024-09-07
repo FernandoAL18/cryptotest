@@ -1,7 +1,11 @@
 import React from 'react';
 import './HomePage.css';
+import { useNavigate } from 'react-router-dom';
+import leBanditImage from '../assets/slots/lebandit.png'; // Importa la imagen de Le Bandit
 
 function HomePage() {
+  const navigate = useNavigate(); // Hook para la navegación
+
   const promotions = [
     'Promocion 1',
     'Promocion 2',
@@ -22,16 +26,16 @@ function HomePage() {
   ];
 
   const slots = [
-    'Slot 1',
-    'Slot 2',
-    'Slot 3',
-    'Slot 4',
-    'Slot 5',
-    'Slot 6',
-    'Slot 7',
-    'Slot 8',
-    'Slot 9',
-    'Slot 10',
+    { name: 'Le Bandit', image: leBanditImage, path: '/casino/games/le-bandit' }, // Slot 1 con imagen y path
+    { name: 'Slot 2' },
+    { name: 'Slot 3' },
+    { name: 'Slot 4' },
+    { name: 'Slot 5' },
+    { name: 'Slot 6' },
+    { name: 'Slot 7' },
+    { name: 'Slot 8' },
+    { name: 'Slot 9' },
+    { name: 'Slot 10' },
   ];
 
   const liveCasino = [
@@ -73,6 +77,13 @@ function HomePage() {
     'Latest Release 10',
   ];
 
+  // Función para redirigir a la ruta del juego de Le Bandit
+  const handleSlotClick = (slot) => {
+    if (slot.path) {
+      navigate(slot.path); // Redirige a la ruta del juego si tiene un path
+    }
+  };
+
   return (
     <div className="homepage">
       {/* Sección de Promociones */}
@@ -101,7 +112,17 @@ function HomePage() {
         <h2>Slots</h2>
         <div className="cards-container">
           {slots.map((slot, index) => (
-            <div key={index} className="card">{slot}</div>
+            <div
+              key={index}
+              className="card"
+              onClick={() => handleSlotClick(slot)} // Accionar redirección al hacer clic
+            >
+              {slot.image ? (
+                <img src={slot.image} alt={slot.name} className="slot-image" /> // Renderiza la imagen si está disponible
+              ) : (
+                slot.name // Si no hay imagen, muestra el nombre
+              )}
+            </div>
           ))}
           <div className="card see-more">See More</div> {/* Tarjeta See More */}
         </div>

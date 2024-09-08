@@ -41,8 +41,8 @@ html, body {
 
 /* Dimensiones y estilos para las tarjetas (excepto promociones) */
 .card {
-    flex: 0 0 180px; /* Ancho fijo de las tarjetas */
-    height: 230px; /* Alto fijo de las tarjetas */
+    flex: 0 0 160px; /* Ajusta el ancho de las tarjetas para dispositivos más pequeños */
+    height: 200px; /* Ajusta el alto de las tarjetas */
     background-color: #1e1e1e;
     border-radius: 5px; /* Esquinas redondeadas */
     display: flex;
@@ -67,8 +67,8 @@ html, body {
 
 /* Estilos para la tarjeta "See More" */
 .card.see-more {
-    flex: 0 0 180px; /* Mantener el tamaño de la tarjeta "See More" */
-    height: 230px;
+    flex: 0 0 160px; /* Mantener el tamaño de la tarjeta "See More" */
+    height: 200px;
     background-color: #6e44ff;
     color: white;
     font-weight: bold;
@@ -83,25 +83,25 @@ html, body {
     transform: translateY(-10px);
 }
 
-/* Mantener las tarjetas del mismo tamaño en todas las pantallas */
+/* Ajuste de tamaño para pantallas más pequeñas */
 @media (max-width: 1200px) {
     .card {
-        flex: 0 0 180px; /* Tamaño fijo */
-        height: 230px;
+        flex: 0 0 140px; /* Ancho fijo más pequeño */
+        height: 180px;   /* Alto más pequeño */
     }
 }
 
 @media (max-width: 768px) {
     .card {
-        flex: 0 0 180px; /* Mantener el tamaño en pantallas más pequeñas */
-        height: 230px;
+        flex: 0 0 120px; /* Ancho más pequeño para pantallas más pequeñas */
+        height: 160px;   /* Ajusta la altura */
     }
 }
 
 @media (max-width: 480px) {
     .card {
-        flex: 0 0 180px; /* Mantener el tamaño también en pantallas pequeñas */
-        height: 230px;
+        flex: 0 0 100px; /* Más pequeño aún para pantallas muy pequeñas */
+        height: 140px;
     }
 }
 

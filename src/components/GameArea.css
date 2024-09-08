@@ -83,7 +83,7 @@
   @media (max-width: 768px) {
     .game-area {
       max-width: 100%; /* Ajusta el ancho al 90% del viewport */
-      height: 60vh; /* La altura cubre el 80% de la pantalla para móviles */
+      height: 50vh; /* La altura cubre el 80% de la pantalla para móviles */
       margin-top: 60px; /* Ajuste en móviles */
     }
   
@@ -101,7 +101,7 @@
   @media (max-width: 480px) {
     .game-area {
       width: 100%; /* El ancho ocupa todo el espacio disponible */
-      height: 90vh; /* La altura cubre el 90% de la pantalla en móviles */
+      height: 50vh; /* La altura cubre el 90% de la pantalla en móviles */
       margin-top: 50px; /* Ajuste en pantallas muy pequeñas */
     }
   

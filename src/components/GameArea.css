@@ -82,7 +82,7 @@
   /* Responsividad para pantallas más pequeñas */
   @media (max-width: 768px) {
     .game-area {
-      max-width: 90%; /* Ajusta el ancho al 90% del viewport */
+      max-width: 100%; /* Ajusta el ancho al 90% del viewport */
       height: 80vh; /* La altura cubre el 80% de la pantalla para móviles */
       margin-top: 60px; /* Ajuste en móviles */
     }

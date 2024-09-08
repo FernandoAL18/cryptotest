@@ -1,18 +1,66 @@
-/* src/components/MobileMenu.css */
+/* Estilos del menú móvil */
 .mobile-menu {
-    display: flex;
-    justify-content: space-around;
-    background-color: #121418;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #121418;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  border-top: 1px solid #2e2e2e; /* Borde superior */
+}
+
+.mobile-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-item img {
+  width: 24px; /* Ajuste de tamaño para los íconos */
+  height: 24px;
+  margin-bottom: 5px; /* Espacio entre el icono y el texto */
+}
+
+.mobile-menu-item:hover {
+  color: #6e44ff; /* Cambia el color del texto e ícono al hacer hover */
+}
+
+.mobile-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu button:hover {
+  color: #6e44ff; /* Cambia el color del texto de los botones al hacer hover */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .mobile-menu-item img {
+    width: 20px;
+    height: 20px; /* Ajusta el tamaño de los íconos para pantallas más pequeñas */
   }
-  
-  .mobile-menu button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
+
+  .mobile-menu-item {
+    font-size: 11px; /* Reduce el tamaño del texto en pantallas más pequeñas */
+    font-weight: bold;
   }
-  
+}
+
+/* Oculta el menú móvil en pantallas grandes */
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}

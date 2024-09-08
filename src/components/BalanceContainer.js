@@ -9,7 +9,6 @@ import xrpIcon from '../assets/xrp-icon.svg';
 
 function BalanceContainer() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isFiatDisplayed, setIsFiatDisplayed] = useState(false);
   const [prices, setPrices] = useState({});
   const [selectedCrypto, setSelectedCrypto] = useState({
     icon: usdtIcon,
@@ -54,11 +53,6 @@ function BalanceContainer() {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  // Alternar la visualización en fiat o tokens
-  const toggleDisplayInFiat = () => {
-    setIsFiatDisplayed(!isFiatDisplayed);
-  };
-
   // Convertir el balance de criptomonedas a dólares (USD)
   const convertToFiat = (crypto) => {
     const price = prices[crypto.symbol];
@@ -75,9 +69,7 @@ function BalanceContainer() {
       <div className="balance-info" onClick={toggleDropdown}>
         <img src={selectedCrypto.icon} alt={selectedCrypto.symbol} className="crypto-icon" />
         <span>
-          {isFiatDisplayed
-            ? `$${convertToFiat(selectedCrypto)}` // Mostrar balance en dólares
-            : `${Number(selectedCrypto.balance).toFixed(8)} ${selectedCrypto.symbol}`} {/* Mostrar balance en tokens */}
+          ${convertToFiat(selectedCrypto)} {/* Siempre mostrar el balance en dólares */}
         </span>
         <img src={downArrow} alt="Toggle Dropdown" className="arrow-icon" />
       </div>
@@ -104,18 +96,12 @@ function BalanceContainer() {
                 </div>
                 <div className="right-section">
                   <span>
-                    {isFiatDisplayed
-                      ? `$${convertToFiat(crypto)}` // Convertir el balance a dólares
-                      : `${Number(crypto.balance).toFixed(8)} ${crypto.symbol}`} {/* Mostrar balance en tokens */}
+                    ${convertToFiat(crypto)} {/* Mostrar siempre el balance en dólares */}
                   </span>
                 </div>
               </li>
             ))}
           </ul>
-          <div className="display-fiat">
-            <span>Display in Fiat</span>
-            <input type="checkbox" checked={isFiatDisplayed} onChange={toggleDisplayInFiat} />
-          </div>
         </div>
       )}
     </div>

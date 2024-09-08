@@ -101,7 +101,7 @@
   @media (max-width: 480px) {
     .game-area {
       width: 100%; /* El ancho ocupa todo el espacio disponible */
-      height: 50vh; /* La altura cubre el 90% de la pantalla en móviles */
+      height: 70vh; /* La altura cubre el 90% de la pantalla en móviles */
       margin-top: 50px; /* Ajuste en pantallas muy pequeñas */
     }
   

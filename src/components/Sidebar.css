@@ -32,9 +32,8 @@
 
 .menu-icon {
   width: 40px;
-  height: 40px; /* Asegura que el tamaño del icono no se haga demasiado pequeño */
+  height: 40px;
   cursor: pointer;
-  margin-right: 0px;
 }
 
 .menu-options {
@@ -43,22 +42,39 @@
   gap: 5px;
 }
 
-.casino-btn, .sports-btn {
+.casino-btn {
   padding: 10px 20px;
   color: white;
   border: none;
+  border-radius: 10px 0px 0px 10px;
   cursor: pointer;
   background-color: #080808;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  margin-left: 20px;
+  margin-right: -20px;
 }
 
-.casino-btn.active, .sports-btn.active {
+.sports-btn {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  background-color: #080808;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+  margin-right: -20px;
+}
+
+.casino-btn.active,
+.sports-btn.active {
   background-color: #6e44ff;
-  border-radius: 5px;
 }
 
-.casino-btn:hover, .sports-btn:hover {
+.casino-btn:hover,
+.sports-btn:hover {
   background-color: #6e44ff;
 }
 
@@ -70,7 +86,7 @@
   width: 100%;
 }
 
-.casino-btn-collapsed, .sports-btn-collapsed {
+.casino-btn-collapsed {
   width: 40px;
   height: 40px;
   background-color: #080808;
@@ -79,17 +95,39 @@
   align-items: center;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 
-.casino-btn-collapsed.active, .sports-btn-collapsed.active {
+.sports-btn-collapsed {
+  width: 40px;
+  height: 40px;
+  background-color: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.casino-btn-collapsed.active,
+.sports-btn-collapsed.active {
   background-color: #6e44ff;
 }
 
-.casino-btn-collapsed img, .sports-btn-collapsed img {
-  width: 30px; /* Aumenta el tamaño de los iconos */
+.casino-btn-collapsed img,
+.sports-btn-collapsed img {
+  width: 30px;
   height: 30px;
 }
 
+/* Divisiones del sidebar */
+.sidebar-divider {
+  border-bottom: 1px solid #2e2e2e;
+  margin: 15px 0;
+}
+
+/* Navegación del sidebar */
 .sidebar-nav ul {
   list-style: none;
   padding: 0;
@@ -109,23 +147,14 @@
 
 .sidebar-nav ul li.active,
 .sidebar-nav ul li:hover {
-  background-color: transparent;
-}
-
-.sidebar-nav ul li.active img,
-.sidebar-nav ul li:hover img {
-  color: #6e44ff;
-}
-
-.sidebar-nav ul li.active span,
-.sidebar-nav ul li:hover span {
-  color: #6e44ff;
+  background-color: #1e1e1e; /* Cambia el color de fondo al estar activo o en hover */
 }
 
 .sidebar-nav ul li img {
-  width: 18px; /* Aumenta el tamaño del icono a 25px */
-  height: 18px;
+  width: 25px;
+  height: 25px;
   margin-left: 0px;
+  transition: filter 0.3s ease;
 }
 
 .sidebar-nav ul li span {
@@ -135,4 +164,63 @@
   transition: color 0.3s ease;
   padding: 5px;
   margin-left: 10px;
+}
+
+
+.sidebar-nav ul li:hover span {
+  color: #6e44ff; /* Cambia el color del texto a morado */
+}
+
+.sidebar-nav ul li.active span {
+  color: #6e44ff; /* Cambia el color del texto a morado */
+}
+
+/* Divisiones visuales */
+.sidebar-divider {
+  height: 1px;
+  background-color: #2e2e2e;
+  margin: 10px 0;
+}
+
+/* Responsividad para sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    padding: 10px 5px;
+  }
+
+  .sidebar.collapsed {
+    width: 60px;
+    padding: 10px 5px;
+  }
+
+  .menu-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .casino-btn,
+  .sports-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .casino-btn-collapsed,
+  .sports-btn-collapsed {
+    width: 35px;
+    height: 35px;
+  }
+
+  .sidebar-nav ul li {
+    padding: 15px;
+  }
+
+  .sidebar-nav ul li img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-nav ul li span {
+    font-size: 14px;
+  }
 }

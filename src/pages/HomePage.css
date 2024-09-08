@@ -14,6 +14,7 @@ html, body {
     padding: 20px;
     max-width: 100vw; /* Limita el ancho al tamaño del viewport */
     overflow-x: hidden;
+    margin-top: 80px; /* Ajuste para respetar el espacio del header */
 }
 
 .section {
@@ -30,21 +31,18 @@ html, body {
     overflow-x: auto; /* Activa el scrolling horizontal */
     scroll-behavior: smooth;
     white-space: nowrap; /* Alinea las tarjetas en una fila */
+    -ms-overflow-style: none;  /* Oculta scrollbar en IE y Edge */
+    scrollbar-width: none;     /* Oculta scrollbar en Firefox */
 }
 
 .cards-container::-webkit-scrollbar {
-    height: 8px; /* Tamaño del scrollbar */
-}
-
-.cards-container::-webkit-scrollbar-thumb {
-    background-color: #6e44ff;
-    border-radius: 10px; /* Diseño del scrollbar */
+    display: none;  /* Oculta el scrollbar en Chrome, Safari y Opera */
 }
 
 /* Dimensiones y estilos para las tarjetas (excepto promociones) */
 .card {
-    flex: 0 0 147px; /* Ancho fijo de las tarjetas */
-    height: 197px; /* Alto fijo de las tarjetas */
+    flex: 0 0 180px; /* Ancho fijo de las tarjetas */
+    height: 230px; /* Alto fijo de las tarjetas */
     background-color: #1e1e1e;
     border-radius: 5px; /* Esquinas redondeadas */
     display: flex;
@@ -69,8 +67,8 @@ html, body {
 
 /* Estilos para la tarjeta "See More" */
 .card.see-more {
-    flex: 0 0 147px;
-    height: 197px;
+    flex: 0 0 180px; /* Mantener el tamaño de la tarjeta "See More" */
+    height: 230px;
     background-color: #6e44ff;
     color: white;
     font-weight: bold;
@@ -85,37 +83,25 @@ html, body {
     transform: translateY(-10px);
 }
 
-/* Responsividad para pantallas medianas (tablets) */
+/* Mantener las tarjetas del mismo tamaño en todas las pantallas */
 @media (max-width: 1200px) {
-    .cards-container {
-        justify-content: flex-start;
-    }
-
     .card {
-        flex: 0 0 calc(33.33% - 15px); /* Muestra 3 tarjetas por fila */
+        flex: 0 0 180px; /* Tamaño fijo */
+        height: 230px;
     }
 }
 
-/* Responsividad para pantallas pequeñas (móviles en modo paisaje) */
 @media (max-width: 768px) {
-    .cards-container {
-        justify-content: flex-start;
-    }
-
     .card {
-        flex: 0 0 calc(50% - 15px); /* Muestra 2 tarjetas por fila */
+        flex: 0 0 180px; /* Mantener el tamaño en pantallas más pequeñas */
+        height: 230px;
     }
 }
 
-/* Responsividad para pantallas muy pequeñas (móviles en modo retrato) */
 @media (max-width: 480px) {
-    .cards-container {
-        justify-content: flex-start;
-    }
-
     .card {
-        flex: 0 0 147px; /* Mantener el tamaño de las tarjetas en pantallas móviles */
-        height: 197px;
+        flex: 0 0 180px; /* Mantener el tamaño también en pantallas pequeñas */
+        height: 230px;
     }
 }
 

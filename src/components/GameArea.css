@@ -10,7 +10,7 @@
     width: 100%;
     max-width: 1200px; /* Ancho para pantallas grandes */
     height: 674px; /* Altura para pantallas grandes */
-    margin: 0 auto;
+    margin: 80px auto 0; /* Añade espacio superior para dejar el espacio necesario debajo del header */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: width 0.3s ease, height 0.3s ease; /* Transiciones suaves */
     overflow: hidden; /* Asegura que el contenido no se salga del área */
@@ -84,6 +84,7 @@
     .game-area {
       max-width: 90%; /* Ajusta el ancho al 90% del viewport */
       height: 80vh; /* La altura cubre el 80% de la pantalla para móviles */
+      margin-top: 60px; /* Ajuste en móviles */
     }
   
     .fun-play-btn {
@@ -101,6 +102,7 @@
     .game-area {
       width: 100%; /* El ancho ocupa todo el espacio disponible */
       height: 90vh; /* La altura cubre el 90% de la pantalla en móviles */
+      margin-top: 50px; /* Ajuste en pantallas muy pequeñas */
     }
   
     .game-slot iframe {

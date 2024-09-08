@@ -1,11 +1,16 @@
 .app-header {
+  position: fixed; /* Fija el header en la parte superior de la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la página */
   background-color: #080808;
-  padding: 10px 20px; /* Agregamos padding extra a la izquierda para evitar que el sidebar lo tape */
+  padding: 10px 20px; /* Padding extra para evitar que el sidebar lo tape */
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: white;
   border-bottom: 2px solid #121418;
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
 }
 
 .logo {
@@ -44,4 +49,21 @@
   width: 18px;
   height: 18px;
   margin-right: 8px;
+}
+
+/* Asegura que el contenido no quede oculto debajo del header */
+body {
+  padding-top: 60px; /* Ajusta el espacio debajo del header */
+}
+
+.main-content {
+  margin-top: 60px; /* Asegura que el contenido principal esté visible y no quede cubierto por el header */
+}
+
+/* Para dispositivos móviles, hacemos el logo más pequeño */
+@media (max-width: 768px) {
+  .logo {
+    width: 60px; /* Ajustamos el tamaño del logo para dispositivos móviles */
+    margin-left: 10px; /* Ajusta el margen a la izquierda si es necesario */
+  }
 }

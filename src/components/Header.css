@@ -63,7 +63,7 @@ body {
 /* Para dispositivos móviles, hacemos el logo más pequeño */
 @media (max-width: 768px) {
   .logo {
-    width: 60px; /* Ajustamos el tamaño del logo para dispositivos móviles */
+    width: 50px; /* Ajustamos el tamaño del logo para dispositivos móviles */
     margin-left: 10px; /* Ajusta el margen a la izquierda si es necesario */
   }
 }

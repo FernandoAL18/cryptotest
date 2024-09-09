@@ -1,113 +1,315 @@
+/* Contenedor del área del juego */
 .game-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #080808;
+  border: 2px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+  height: 674px;
+  margin: 80px auto 0; /* Espacio entre la parte superior y el game area */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: width 0.3s ease, height 0.3s ease;
+  overflow: hidden;
+}
+
+/* Nuevo contenedor, independiente del game-area */
+.game-options-container {
+  margin-top: 20px; /* Espacio entre el game-area y el nuevo contenedor */
+  width: 100%;
+  max-width: 1200px;
+  background-color: #121418;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  margin-left: auto; /* Centrar el contenedor horizontalmente */
+  margin-right: auto; /* Centrar el contenedor horizontalmente */
+}
+
+/* Sección izquierda con iconos */
+.icon-options {
+  display: flex;
+  gap: 15px;
+  position: relative; /* Necesario para posicionar el tooltip */
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  position: relative; /* Necesario para el tooltip */
+}
+
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.icon-btn:hover img {
+  transform: scale(1.2);
+}
+
+/* Estilos para el tooltip */
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 50px; /* Espacio entre el tooltip y el icono */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Triángulo en el tooltip */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Posiciona el triángulo justo debajo del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px; /* Tamaño del triángulo */
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent; /* Colorea solo el borde superior */
+}
+
+.icon-btn:hover .tooltip {
+  display: block; /* Mostrar el tooltip al pasar el ratón sobre el icono */
+}
+
+/* Logo en el centro */
+.center-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.center-logo img {
+  width: 80px;
+  height: auto;
+}
+
+/* Botones de opciones del juego */
+.game-option-btn {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.game-option-btn:hover {
+  background-color: #6e44ff;
+}
+
+/* Botones para cambiar entre "Real" y "Fun" */
+.game-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.game-toggle button {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.game-toggle button:hover {
+  background-color: #6e44ff;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .game-area {
+    max-width: 100%;
+    height: 70vh;
+    margin-top: 60px;
+  }
+
+  .game-options-container {
     flex-direction: column;
-    background-color: #080808;
-    border: 2px solid #1e1e1e;
-    border-radius: 10px;
-    padding: 0; /* Elimina el padding para que el iframe llene el área */
-    width: 100%;
-    max-width: 1200px; /* Ancho para pantallas grandes */
-    height: 674px; /* Altura para pantallas grandes */
-    margin: 80px auto 0; /* Añade espacio superior para dejar el espacio necesario debajo del header */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    transition: width 0.3s ease, height 0.3s ease; /* Transiciones suaves */
-    overflow: hidden; /* Asegura que el contenido no se salga del área */
+    gap: 10px;
   }
-  
-  .game-options {
-    text-align: center;
-  }
-  
-  .balance-selector {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: white;
-  }
-  
-  .balance-selector select {
-    background-color: #121418;
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .play-options {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .fun-play-btn {
-    background-color: #6e44ff;
-    border: none;
-    padding: 12px 20px;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .fun-play-btn:hover {
-    background-color: #884dff;
-  }
-  
-  .game-slot {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .icon-options,
+  .game-toggle {
     flex-direction: column;
-    background-color: #121418;
-    border-radius: 10px;
-    padding: 0; /* Elimina padding para que el iframe ocupe todo el espacio */
-  }
-  
-  /* El iframe del juego debe llenar todo el área del juego */
-  .game-slot iframe {
     width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 10px; /* Mantiene las esquinas redondeadas */
   }
-  
-  .game-slot h2 {
-    color: white;
-    margin-bottom: 20px;
+
+  .center-logo {
+    margin: 10px 0;
   }
-  
-  /* Responsividad para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .game-area {
-      max-width: 100%; /* Ajusta el ancho al 90% del viewport */
-      height: 70vh; /* La altura cubre el 80% de la pantalla para móviles */
-      margin-top: 60px; /* Ajuste en móviles */
-    }
-  
-    .fun-play-btn {
-      width: 100%;
-    }
-  
-    /* Ajustar el iframe para pantallas más pequeñas */
-    .game-slot iframe {
-      width: 100%;
-      height: 100%;
-    }
+}
+
+@media (max-width: 480px) {
+  .game-area {
+    width: 100%;
+    height: 70vh;
+    margin-top: 50px;
   }
-  
-  @media (max-width: 480px) {
-    .game-area {
-      width: 100%; /* El ancho ocupa todo el espacio disponible */
-      height: 70vh; /* La altura cubre el 90% de la pantalla en móviles */
-      margin-top: 50px; /* Ajuste en pantallas muy pequeñas */
-    }
-  
-    .game-slot iframe {
-      width: 100%;
-      height: 100%; /* Asegura que el iframe llene todo el área disponible */
-    }
+
+  .game-options-container {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
   }
-  
+
+  .icon-options,
+  .game-toggle {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .center-logo {
+    margin: 10px 0;
+  }
+}
+
+/* Estilos generales para el pop out */
+.pop-out-window {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 400px;
+  height: 300px;
+  background-color: #121418;
+  border: 1px solid #1e1e1e;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header de la ventana pop out */
+.pop-out-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.pop-out-header img {
+  width: 30px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.pop-out-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Contenido del pop out */
+.pop-out-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pop-out-content .balance-in {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pop-out-content .balance-in select {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Estilos de los botones */
+.pop-out-content .btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.pop-out-content .register-btn {
+  background-color: #6e44ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pop-out-content .fun-play-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pop-out-content .fun-play-btn:hover {
+  background-color: #6e44ff;
+  border-color: #6e44ff;
+}
+
+/* Estilo para el mensaje cuando el pop-out está activo */
+.pop-out-active-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #080808;
+}
+
+.pop-out-active-message h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pop-out-active-message p {
+  font-size: 16px;
+}

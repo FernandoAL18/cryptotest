@@ -3,6 +3,7 @@ import './Header.css';
 import logoDesktop from '../assets/logo.png'; // Logo para pantallas grandes
 import logoMobile from '../assets/logo-mobile.png'; // Logo para pantallas pequeñas
 import BalanceContainer from './BalanceContainer'; // Importar el BalanceContainer
+import { Link } from 'react-router-dom'; // Importar el Link de react-router-dom
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,7 +23,9 @@ function Header() {
 
   return (
     <header className="app-header">
-      <img src={isMobile ? logoMobile : logoDesktop} alt="Logo" className="logo" /> {/* Logo dinámico */}
+      <Link to="/"> {/* Envolver el logo en un Link para redirigir al home */}
+        <img src={isMobile ? logoMobile : logoDesktop} alt="Logo" className="logo" /> {/* Logo dinámico */}
+      </Link>
       
       <div className="header-center"> {/* Centrar BalanceContainer */}
         <BalanceContainer />

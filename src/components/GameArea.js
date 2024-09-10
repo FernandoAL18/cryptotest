@@ -1,4 +1,3 @@
-// src/components/GameArea.js
 import React, { useState } from 'react';
 import './GameArea.css';
 import expandIcon from '../assets/icons/game-container/expand.svg';
@@ -7,29 +6,33 @@ import theatreModeIcon from '../assets/icons/game-container/theatre-mode.svg';
 import statsIcon from '../assets/icons/game-container/stats.svg';
 import favouriteIcon from '../assets/icons/game-container/favourite.svg';
 import logo from '../assets/icons/game-container/logo.png';
-import PopOutWindow from './PopOutWindow'; // Importa la ventana flotante
+import PopOutWindow from './PopOutWindow'; 
+import { usePopOut } from '../context/PopOutContext'; // Import PopOutContext
 
 function GameArea({ gameLink }) {
   const [isGameStarted, setGameStarted] = useState(false);
-  const [isPopOutActive, setPopOutActive] = useState(false); // Nuevo estado para el pop-out
+  const { isPopOutActive, openPopOut, closePopOut } = usePopOut(); // Use PopOutContext
 
   const startDemoGame = () => {
     setGameStarted(true);
   };
 
-  // Activar el pop-out
   const handlePopOut = () => {
-    setPopOutActive(true);
-  };
-
-  // Cerrar el pop-out
-  const closePopOut = () => {
-    setPopOutActive(false);
+    openPopOut(
+      <iframe
+        src={gameLink}
+        title="Pop Out Slot Game"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        allowFullScreen
+      />
+    );
   };
 
   return (
     <div>
-      {/* Área del juego */}
+      {/* Game area */}
       <div className="game-area">
         {!isGameStarted ? (
           <div className="game-options">
@@ -49,13 +52,13 @@ function GameArea({ gameLink }) {
             </div>
           </div>
         ) : isPopOutActive ? (
-          // Si el pop-out está activo, mostrar el mensaje
+          // Display message if pop-out is active
           <div className="pop-out-active-message">
             <h2>Pop Out Active</h2>
             <p>Close the pop-out window to continue playing here.</p>
           </div>
         ) : (
-          // Mostrar el juego si el pop-out no está activo
+          // Show game if pop-out is not active
           <iframe
             src={gameLink}
             title="Slot Game"
@@ -67,9 +70,8 @@ function GameArea({ gameLink }) {
         )}
       </div>
 
-      {/* Contenedor de opciones debajo del área del juego */}
+      {/* Game options container */}
       <div className="game-options-container">
-        {/* Iconos de la izquierda */}
         <div className="icon-options">
           <button className="icon-btn">
             <img src={expandIcon} alt="Full Screen" />
@@ -93,19 +95,19 @@ function GameArea({ gameLink }) {
           </button>
         </div>
 
-        {/* Logo en el centro */}
+        {/* Logo in the center */}
         <div className="center-logo">
           <img src={logo} alt="Logo" />
         </div>
 
-        {/* Botones de la derecha */}
+        {/* Real and Fun toggle buttons */}
         <div className="game-toggle">
           <button className="game-option-btn">Real</button>
           <button className="game-option-btn">Fun</button>
         </div>
       </div>
 
-      {/* Ventana flotante Pop-out */}
+      {/* Pop-out window */}
       {isPopOutActive && (
         <PopOutWindow onClose={closePopOut}>
           <iframe

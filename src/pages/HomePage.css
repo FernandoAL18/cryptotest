@@ -41,7 +41,7 @@ html, body {
 
 /* Dimensiones y estilos para las tarjetas (excepto promociones) */
 .card {
-    flex: 0 0 160px; /* Ajusta el ancho de las tarjetas para dispositivos más pequeños */
+    flex: 0 0 150px; /* Ajusta el ancho de las tarjetas para dispositivos más pequeños */
     height: 200px; /* Ajusta el alto de las tarjetas */
     background-color: #1e1e1e;
     border-radius: 5px; /* Esquinas redondeadas */

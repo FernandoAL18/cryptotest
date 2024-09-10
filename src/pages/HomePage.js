@@ -40,15 +40,15 @@ function HomePage() {
 
   const slots = [
     { name: 'Le Bandit', image: leBanditImage, path: '/casino/games/le-bandit' },
-    { name: 'Zeus vs Shades', image: zeusvshadesImage },
-    { name: 'Wanted Dead or a Wild', image: wanteddeadorawildImage },
-    { name: 'The Dog House', image: thedoghouseImage },
-    { name: 'Tai the Toad', image: taithetoadImage },
-    { name: 'Sweet Bonanza', image: sweetbonanzaImage },
-    { name: 'Sugar Rush', image: sugarrushImage },
-    { name: 'Rip City', image: ripcityImage },
-    { name: 'Old Gun', image: oldgunImage },
-    { name: 'Money Stacks', image: moneystacksImage },
+    { name: 'Zeus vs Shades', image: zeusvshadesImage, path: '/casino/games/zeus-vs-hades' },
+    { name: 'Wanted Dead or a Wild', image: wanteddeadorawildImage, path: '/casino/games/wanted-dead-or-a-wild' },
+    { name: 'The Dog House', image: thedoghouseImage, path: '/casino/games/the-dog-house' },
+    { name: 'Tai the Toad', image: taithetoadImage, path: '/casino/games/tai-the-toad' },
+    { name: 'Sweet Bonanza', image: sweetbonanzaImage, path: '/casino/games/sweet-bonanza' },
+    { name: 'Sugar Rush', image: sugarrushImage, path: '/casino/games/sugar-rush' },
+    { name: 'Rip City', image: ripcityImage, path: '/casino/games/rip-city' },
+    { name: 'Old Gun', image: oldgunImage, path: '/casino/games/old-gun' },
+    { name: 'Money Stacks', image: moneystacksImage, path: '/casino/games/money-stacks' },
   ];
 
   const liveCasino = [

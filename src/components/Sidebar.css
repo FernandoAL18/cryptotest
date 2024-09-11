@@ -44,9 +44,9 @@
 .menu-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between; /* Alineación adecuada */
   width: 100%;
-  margin-top: 15px;
+  margin-top: 10px; /* Ajustado el margen */
 }
 
 .menu-container.collapsed {
@@ -54,9 +54,8 @@
 }
 
 .menu-icon {
-  width: 35px;
-  height: 35px;
-  margin-top: -10px;
+  width: 30px; /* Tamaño ajustado para mejor alineación */
+  height: 30px;
   cursor: pointer;
 }
 
@@ -67,7 +66,7 @@
 }
 
 .casino-btn {
-  padding: 10px 20px;
+  padding: 10px 25px;
   color: white;
   border: none;
   border-radius: 10px 0px 0px 10px;
@@ -76,11 +75,10 @@
   font-weight: bold;
   transition: background-color 0.3s ease;
   margin-left: 20px;
-  margin-right: -20px;
 }
 
 .sports-btn {
-  padding: 10px 20px;
+  padding: 10px 25px;
   color: white;
   border: none;
   border-radius: 0px 10px 10px 0px;
@@ -88,8 +86,7 @@
   background-color: #080808;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  margin-left: 20px;
-  margin-right: -20px;
+  margin-left: -10px; /* Ajustado para alinearse mejor con el botón de Casino */
 }
 
 .casino-btn.active,
@@ -165,7 +162,7 @@
 .sidebar-nav ul li {
   display: flex;
   align-items: center;
-  padding: 17px;
+  padding: 15px 10px; /* Ajuste de padding */
   cursor: pointer;
   color: white;
   border-radius: 5px;
@@ -178,19 +175,17 @@
 }
 
 .sidebar-nav ul li img {
-  width: 25px;
-  height: 25px;
-  margin-left: 0px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Ajuste para alinear con el texto */
   transition: filter 0.3s ease;
 }
 
 .sidebar-nav ul li span {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
   transition: color 0.3s ease;
-  padding: 5px;
-  margin-left: 10px;
 }
 
 .sidebar-nav ul li:hover span {
@@ -221,8 +216,8 @@
   }
 
   .menu-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
 
   .casino-btn,
@@ -249,4 +244,68 @@
   .sidebar-nav ul li span {
     font-size: 14px;
   }
+}
+
+/* Estilos para el sidebar colapsado */
+.sidebar.collapsed {
+  width: 60px;
+  align-items: center;
+  overflow-y: auto; /* Habilitar scroll vertical */
+  overflow-x: hidden; /* Deshabilitar scroll horizontal */
+}
+
+/* Centrar los íconos en el sidebar colapsado */
+.sidebar.collapsed .menu-container {
+  justify-content: center; /* Centrar íconos en la barra de menú */
+}
+
+.sidebar.collapsed .menu-options-collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sidebar.collapsed .menu-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 0; /* Centrar ícono de menú */
+}
+
+/* Centrar íconos en los botones colapsados */
+.sidebar.collapsed .casino-btn-collapsed,
+.sidebar.collapsed .sports-btn-collapsed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #080808;
+  transition: background-color 0.3s ease;
+  border-radius: 10px; /* Ajuste visual */
+}
+
+.sidebar.collapsed .casino-btn-collapsed img,
+.sidebar.collapsed .sports-btn-collapsed img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Centrar íconos en la navegación del sidebar colapsado */
+.sidebar.collapsed .sidebar-nav ul li {
+  display: flex;
+  justify-content: center; /* Centrar los íconos */
+  align-items: center;
+  padding: 15px;
+}
+
+.sidebar.collapsed .sidebar-nav ul li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0; /* Eliminar margen para centrar el ícono */
+}
+
+.sidebar.collapsed .sidebar-nav ul li span {
+  display: none; /* Ocultar el texto en el sidebar colapsado */
 }

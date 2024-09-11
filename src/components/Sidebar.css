@@ -1,4 +1,4 @@
-/* Estilos específicos para el sidebar */
+/* Estilos generales para el sidebar */
 .sidebar {
   background-color: #121418;
   width: 250px;
@@ -11,11 +11,34 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Habilitar scroll vertical */
+  overflow-x: hidden; /* Deshabilitar scroll horizontal */
+  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
 }
 
 .sidebar.collapsed {
   width: 60px;
   align-items: center;
+  overflow-y: auto; /* Scroll vertical también para el sidebar colapsado */
+  overflow-x: hidden; /* Sin scroll horizontal */
+}
+
+/* Ocultar scrollbars en navegadores Webkit (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+  width: 0px;  /* Ocultar scrollbar */
+  background: transparent;  /* Asegurar que no haya fondo para la scrollbar */
+}
+
+/* Para Internet Explorer, Edge y otros navegadores */
+.sidebar {
+  -ms-overflow-style: none;  /* Ocultar scrollbar en IE y Edge */
+  scrollbar-width: none;  /* Ocultar scrollbar en Firefox */
+}
+
+/* Contenedor estático para el menú y botones de Casino y Sports */
+.sidebar-static {
+  position: relative;
+  z-index: 2; /* Para asegurar que siempre esté visible */
 }
 
 .menu-container {
@@ -31,8 +54,9 @@
 }
 
 .menu-icon {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  margin-top: -10px;
   cursor: pointer;
 }
 
@@ -117,17 +141,20 @@
 
 .casino-btn-collapsed img,
 .sports-btn-collapsed img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
-/* Divisiones del sidebar */
-.sidebar-divider {
-  border-bottom: 1px solid #2e2e2e;
-  margin: 15px 0;
+/* Contenido con scroll */
+.sidebar-scrollable {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1; /* Para permitir que el scrollable contenido se desplace */
 }
 
-/* Navegación del sidebar */
+/* Estilos para los elementos navegables del sidebar */
 .sidebar-nav ul {
   list-style: none;
   padding: 0;
@@ -147,7 +174,7 @@
 
 .sidebar-nav ul li.active,
 .sidebar-nav ul li:hover {
-  background-color: #1e1e1e; /* Cambia el color de fondo al estar activo o en hover */
+  background-color: #1e1e1e;
 }
 
 .sidebar-nav ul li img {
@@ -166,13 +193,12 @@
   margin-left: 10px;
 }
 
-
 .sidebar-nav ul li:hover span {
-  color: #6e44ff; /* Cambia el color del texto a morado */
+  color: #6e44ff;
 }
 
 .sidebar-nav ul li.active span {
-  color: #6e44ff; /* Cambia el color del texto a morado */
+  color: #6e44ff;
 }
 
 /* Divisiones visuales */

@@ -8,6 +8,7 @@ import MobileMenu from './components/MobileMenu';
 import HomePage from './pages/HomePage';
 import GamesPage from './pages/GamesPage';
 import ProfilePage from './pages/ProfilePage';
+import AllSlotsPage from './pages/AllSlotsPage';
 import LeBanditGame from './pages/LeBanditGame';
 import ZeusVsHadesGame from './pages/ZeusVsHadesGame';
 import WantedDeadOrAWildGame from './pages/WantedDeadOrAWildGame';
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/games" element={<GamesPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/casino/slots" element={<AllSlotsPage />} />
                 <Route path="/casino/games/le-bandit" element={<LeBanditGame />} />
                 <Route path="/casino/games/zeus-vs-hades" element={<ZeusVsHadesGame />} />
                 <Route path="/casino/games/wanted-dead-or-a-wild" element={<WantedDeadOrAWildGame />} />
